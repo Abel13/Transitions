@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Transitions.UserControlAlarms"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Transitions"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Grid.Row="0" Mode="Dark" VerticalAlignment="Stretch" 
+                                  HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <TextBlock Text="ALARMS" FontSize="50" Margin="80" VerticalAlignment="Center"/>
+        </materialDesign:ColorZone>
+        <Button Style="{DynamicResource MaterialDesignFloatingActionButton}"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Grid.Row="0" Grid.RowSpan="2" Margin="20">
+            <materialDesign:PackIcon Kind="AddAlarm"/>
+        </Button>
+        <ListView Grid.Row="2" Margin="10">
+            <ListViewItem Opacity="0.5">
+                <Grid Width="300">
+                    <StackPanel>
+                        <TextBlock FontSize="30">05:01</TextBlock>
+                        <TextBlock Opacity="0.8">Off</TextBlock>
+                    </StackPanel>
+                    <ToggleButton HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+                </Grid>
+            </ListViewItem>
+            <ListViewItem>
+                <Grid Width="300">
+                    <StackPanel>
+                        <TextBlock FontSize="30">05:01</TextBlock>
+                        <TextBlock>Sun | Alarm in 7 hours 48 minutes</TextBlock>
+                    </StackPanel>
+                    <ToggleButton IsChecked="True" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+                </Grid>
+            </ListViewItem>
+        </ListView>
+    </Grid>
+</UserControl>
